@@ -3,33 +3,33 @@
 .navbar{
 
     background-color: white !important;
-    font-size: 40px;
+    font-size: 25px;
 
 }
 
 .navbar .navbar-brand{
     color:black;
-    font-size: 40px;
+    font-size: 25px;
 
 }
 
 .navbar .navbar-brand:hover{
     color:gray;
-    font-size: 40px;
+    font-size: 25px;
 
 }
 
 .navbar .navbar-nav li a{
 
     color:gray !important;
-    font-size: 25px;
+    font-size: 20px;
 
 }
 
 .navbar .nav-item .dropdown-menu .dropdown-item{
 
     color:gray !important;
-    font-size: 25px;
+    font-size: 20px;
 }
 
 .navbar .nav-item .dropdown-menu .dropdown-item:hover{
@@ -78,22 +78,22 @@ background: #707070;
 	left: 0
 }
 .about-sec h2 {
-	font-size: 55px;
+	font-size: 45px;
 	font-weight: 800;
-	margin-top: 25%;
+	margin-top: 15%;
 }
 .about-sec h2 small {
+	
 	display: block;
 	font-size: 24px;
 	margin-bottom: 15px;
-	padding-left: 10px;
+	font-weight: 600;
 }
 .about-sec p {
-	font-size: 16px;
+	font-size: 20px;
 }
 
 .action-sec{width:100%; float:left; background:#222}
 .action-box{float:left; width:100%; text-align:center;}
 .action-box h2{color:#fff; font-size:20px;}
 
-/*Social Media styles*/
