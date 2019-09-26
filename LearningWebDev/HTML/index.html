@@ -6,24 +6,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+    <!--Bootstrap library link-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!--Navigation bar, Carousel Banner & About section CSS sheet-->
     <link rel="stylesheet" type="text/css" href="../CSS/navbarStyles.css">
+    <!--Social Media section sheet-->
+    <link rel="stylesheet" type="text/css" href="../CSS/socialMediaStyles.css">
 
+    <!--Icon that appears on Website's tab-->
+    <link rel='icon' href='../Images/favicon.ico' type='image/x-icon'/>
     
-    <title>Document</title>
+    <title>Musicians Headquaters</title>
 
 </head>
 
+<!--Home Page of Website-->
 <body>
 
+  <!--Navigation bar at the top of the page-->
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">
-      
+
+        <!--Small image in navbar-->
         <img src="../Images/clef.png" width="30" height="40" class="d-inline-block align-top" alt="">
       Musicians Headquaters</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+
+    <!--List of items within navbar.
+    Specify redirects to other pages here!-->
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
 
@@ -65,19 +77,22 @@
     </div>
   </nav>
 
+  <!--Banner slide show of pictures.-->
   <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
-      
+
+        <!--Specify banner images here!
+        Make sure they are 1400x600 Resolution!-->
         <div class="carousel-item active">
-            <img src="../Images/testBack.jpg" class="d-block w-100" alt="...">
+            <img src="../Images/storeBannerTest.jpg" class="d-block w-100" alt="...">
         </div>
      
       <div class="carousel-item">
-          <img src="../Images/testBack.jpg" class="d-block w-100" alt="...">
+          <img src="../Images/storeBannerTest.jpg" class="d-block w-100" alt="...">
       </div>
 
         <div class="carousel-item">
-            <img src="../Images/testBack.jpg" class="d-block w-100" alt="...">
+            <img src="../Images/sgBanner.png" class="d-block w-100" alt="...">
           </div>
 
     </div>
@@ -91,19 +106,24 @@
     </a>
   </div>
 
+  <!--Padding between carousel and text section-->
   <div style="background-color: black; padding-block: 35px; color: black">
    
     sample
 
   </div>
   
+  <!--About section located under carousel banner-->
   <section class="about-sec parallax-section" id="about">
       <div class="container">
         <div class="row">
-          <div class="col-md-3">
-            <h2><small>Small Enough to be Personal,</small>Big<br>
-              Enough to Serve You!</h2>
+          <div class="col-md-4">
+            <h2>Big<br>
+              Enough to Serve You<br>
+              <small>Small Enough to be Personal</small></h2>
           </div>
+
+          <!--Text on the left of about section-->
           <div class="col-md-4">
             <p>Musicians Headquarters has been in business for
                 25 years Serving the Dallas Metro Area. We carry a lot of major bands,
@@ -114,6 +134,8 @@
                  daily. Let our friendly staff take care of you musical needs. Most of our
                   staff are professional musicians.</p>
           </div>
+
+          <!--Text on the right of about section-->
           <div class="col-md-4">
               <p>Musicians Headquarters has been in business for
                   25 years Serving the Dallas Metro Area. We carry a lot of major bands,
@@ -123,29 +145,32 @@
                         company. Stop in and see what we have to offer!! New and used products arriving
                          daily. Let our friendly staff take care of you musical needs. Most of our
                           staff are professional musicians.</p>
-            <p><a href="#" class="btn btn-transparent-white btn-capsul">Explore More</a></p>
+
+            <!--More info button on About section
+            The Button will redict to the storeInfo page-->
+            <p><a href="#" class="btn btn-dark btn-capsul">Store Information</a></p>
           </div>
         </div>
       </div>
-    </section>
+  </section>
+
     
-    <div style="background-color: black; padding-block: 35px; color: black">
+  <!--Padding between About section and Products slide section-->
+  <div style="background-color: black; padding-block: 35px; color: black">
    
         sample
     
-      </div>
-    
+  </div>
 
-  <p class="text-center">Musicians Headquarters has been in business for
-     25 years Serving the Dallas Metro Area. We carry a lot of major bands,
-      but we are known for our great selection of great used products. We buy,
-       sell, trade, consign, rent, and offer lessons. We are an independently owned
-        company. Stop in and see what we have to offer!! New and used products arriving
-         daily. Let our friendly staff take care of you musical needs. Most of our
-          staff are professional musicians. - The Staff</p>
+  <!--Title for Product slide show.Padding between About section and Products slide section-->
+  <div style="background-color: white; text-align: center; padding: 35px;">
 
+      <h1>Check out our inventory!</h1>
+  
+  </div>
 
-          <div class="container">
+  <!--Slide show of pictures. Allows you to redirect to Product page-->
+  <div class="container">
               <div class="row blog">
                   <div class="col-md-12">
                       <div id="blogCarousel" class="carousel slide" data-ride="carousel">
@@ -155,7 +180,7 @@
                               <li data-target="#blogCarousel" data-slide-to="1"></li>
                           </ol>
   
-                          <!-- Carousel items -->
+                          <!-- Carousel items and images specified here-->
                           <div class="carousel-inner">
   
                               <div class="carousel-item active">
@@ -167,29 +192,28 @@
                                       </div>
                                       <div class="col-md-3">
                                           <a href="#">
-                                              <img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;">
+                                              <img src="../Images/bassImage.jpg" alt="Image" style="max-width:100%;">
                                           </a>
                                       </div>
                                       <div class="col-md-3">
                                           <a href="#">
-                                              <img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;">
+                                              <img src="../Images/ampsImage.jpg" alt="Image" style="max-width:100%;">
                                           </a>
                                       </div>
                                       <div class="col-md-3">
                                           <a href="#">
-                                              <img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;">
+                                              <img src="../Images/accordionImage.jpg" alt="Image" style="max-width:100%;">
                                           </a>
                                       </div>
                                   </div>
-                                  <!--.row-->
-                              </div>
-                              <!--.item-->
+                                  <!--End of first row of items-->
+                              </div>           
   
                               <div class="carousel-item">
                                   <div class="row">
                                       <div class="col-md-3">
                                           <a href="#">
-                                              <img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;">
+                                              <img src="../Images/hornsImage.jpg" alt="Image" style="max-width:100%;">
                                           </a>
                                       </div>
                                       <div class="col-md-3">
@@ -208,12 +232,12 @@
                                           </a>
                                       </div>
                                   </div>
-                                  <!--.row-->
+                                  <!--End of second row of items-->
                               </div>
-                              <!--.item-->
+                              
   
                           </div>
-                          <!--.carousel-inner-->
+                          
                       </div>
                       <!--.Carousel-->
   
@@ -221,9 +245,46 @@
               </div>
   </div>
 
+  <!--Padding between Product slide section and Social media section-->
+  <div style="background-color: white; padding-block: 35px; color: white">
+   
+      sample
+  
+  </div>
+
+  <!--Social media section with buttons-->
+  <div class="container">
+    
+      <div class="kpx_login">
+          <h3 class="kpx_authTitle">Keep up with the store!
+          <div class="row kpx_row-sm-offset-3 kpx_socialButtons">
+            <div class="col-xs-2 col-sm-2">
+              <a href="#" class="btn btn-lg btn-block kpx_btn-facebook" data-toggle="tooltip" data-placement="top" title="Facebook">
+                <i class="fa fa-facebook fa-2x"></i>
+                <span class="hidden-xs"></span>
+              </a>
+            </div>
+            <div class="col-xs-2 col-sm-2">
+              <a href="#" class="btn btn-lg btn-block kpx_btn-twitter" data-toggle="tooltip" data-placement="top" title="Yelp">
+                <i class="fa fa-yelp fa-2x"></i>
+                <span class="hidden-xs"></span>
+              </a>
+            </div>  
+            <div class="col-xs-2 col-sm-2">
+              <a href="#" class="btn btn-lg btn-block kpx_btn-google-plus" data-toggle="tooltip" data-placement="top" title="EBay">
+                <i class="fa fa-shopping-basket fa-2x"></i>
+                <span class="hidden-xs"></span>
+              </a>
+            </div>  
+      </div><br>
+      
+      </div>	    	
+  </div>
+      
 
 </body>
 
+<!--JQuery library link-->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
