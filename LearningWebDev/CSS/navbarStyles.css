@@ -40,6 +40,23 @@
 
 }
 
+/*Footer of entire page*/
+
+.footer-dark {
+
+    padding:15px;
+    background-color: black;
+    
+  }
+  .footer-dark .copyright {
+    text-align:center;
+    padding-top:0px;
+    font-size:13px;
+    margin-bottom:0;
+    color:white;
+  }
+
+
 /*Carousel banner CSS*/
 
 .blog .carousel-indicators {
