@@ -85,4 +85,10 @@
   
   ------------------------------------------------------------------------------------------------------------------------------------
   
+  <!--Padding between Product slide section and Social media section-->
+  <div style="background-color: white; padding-block: 35px; color: white">
+   
+      sample
+  
+  </div>
   
