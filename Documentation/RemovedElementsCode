@@ -1,0 +1,88 @@
+
+-------------------------------------------------------------------------------------------------------------------------------------
+<!--Title for Product slide show.Padding between About section and Products slide section-->
+  <div style="background-color: white; text-align: center; padding: 35px;">
+
+      <h1>Check out our inventory!</h1>
+  
+  </div>
+
+  <!--Slide show of pictures. Allows you to redirect to Product page-->
+  <div class="container">
+              <div class="row blog">
+                  <div class="col-md-12">
+                      <div id="blogCarousel" class="carousel slide" data-ride="carousel">
+  
+                          <ol class="carousel-indicators">
+                              <li data-target="#blogCarousel" data-slide-to="0" class="active"></li>
+                              <li data-target="#blogCarousel" data-slide-to="1"></li>
+                          </ol>
+  
+                          <!-- Carousel items and images specified here-->
+                          <div class="carousel-inner">
+  
+                              <div class="carousel-item active">
+                                  <div class="row">
+                                      <div class="col-md-3">
+                                          <a href="#">
+                                              <img src="../Images/guitarImage.jpg" alt="Image" style="max-width:100%;" title="Guitars">
+                                          </a>
+                                      </div>
+                                      <div class="col-md-3">
+                                          <a href="#">
+                                              <img src="../Images/bassImage.jpg" alt="Image" style="max-width:100%;" title="Bass">
+                                          </a>
+                                      </div>
+                                      <div class="col-md-3">
+                                          <a href="#">
+                                              <img src="../Images/ampsImage.jpg" alt="Image" style="max-width:100%;" title="Amps">
+                                          </a>
+                                      </div>
+                                      <div class="col-md-3">
+                                          <a href="#">
+                                              <img src="../Images/accordionImage.jpg" alt="Image" style="max-width:100%;" title="Accordions">
+                                          </a>
+                                      </div>
+                                  </div>
+                                  <!--End of first row of items-->
+                              </div>           
+  
+                              <div class="carousel-item">
+                                  <div class="row">
+                                      <div class="col-md-3">
+                                          <a href="#">
+                                              <img src="../Images/hornsImage.jpg" alt="Image" style="max-width:100%;">
+                                          </a>
+                                      </div>
+                                      <div class="col-md-3">
+                                          <a href="#">
+                                              <img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;">
+                                          </a>
+                                      </div>
+                                      <div class="col-md-3">
+                                          <a href="#">
+                                              <img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;">
+                                          </a>
+                                      </div>
+                                      <div class="col-md-3">
+                                          <a href="#">
+                                              <img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;">
+                                          </a>
+                                      </div>
+                                  </div>
+                                  <!--End of second row of items-->
+                              </div>
+                              
+  
+                          </div>
+                          
+                      </div>
+                      <!--.Carousel-->
+  
+                  </div>
+              </div>
+  </div>
+  
+  ------------------------------------------------------------------------------------------------------------------------------------
+  
+  
