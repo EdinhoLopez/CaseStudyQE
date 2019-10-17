@@ -26,6 +26,12 @@
 
 }
 
+.navbar .navbar-nav li a:hover{
+
+    color:black !important;
+    
+}
+
 .navbar .nav-item .dropdown-menu .dropdown-item{
 
     color:gray !important;
@@ -36,6 +42,7 @@
 
     color:white !important;
     background-color: black;
+    
 
 
 }
@@ -114,3 +121,76 @@ background: #707070;
 .action-box{float:left; width:100%; text-align:center;}
 .action-box h2{color:#fff; font-size:20px;}
 
+/*Contact information in HomePage*/
+.first-box{padding:10px;background:#404040;}
+.second-box{padding:10px; background:#4d4d4d;}
+.third-box{padding:10px;background:#595959;}
+.fourth-box{padding:10px;background:#666666;}
+
+.container-fluid h1{
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+.container-fluid h3{
+
+    padding-bottom: 10px;
+    color:white;
+
+}
+
+.container-fluid p{
+    font-size: 20px;
+    overflow-wrap: break-word;
+    color:white;
+}
+
+.container-fluid a{
+    color: black;
+}
+
+.container-fluid a:hover{
+
+    color: #b3b3b3;
+    text-decoration: underline;
+
+}
+
+/*Opening hours sections*/
+
+.demo-bg{
+background: darkgray;
+
+}
+.business-hours {
+background: black; 
+padding: 40px 14px;
+
+position: relative;
+}
+
+.business-hours .title {
+font-size: 20px;
+color: white;
+text-transform: uppercase;
+padding-left: 5px;
+border-left: 4px solid white; 
+}
+.business-hours li {
+color: white;
+line-height: 30px;
+border-bottom: 1px solid #333; 
+}
+.business-hours li:last-child {
+border-bottom: none; 
+}
+.business-hours .opening-hours li.today {
+color: gray; 
+}
+
+.openHours{
+
+    background-color: silver;
+
+}
