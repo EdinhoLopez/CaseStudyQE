@@ -18,6 +18,45 @@ public class BrandsDAO {
 	Connection con = null;
 	Statement stm = null;
 	
+
+	//Determines whether a connection to the DB is possible		
+	public Connection testConnection() {
+				
+		//Creates object from MariaDBConnection so you can use its getConnection Method
+		MariaDBConnection mariadbConnection = new MariaDBConnection();
+				
+		try {
+					
+			//Variable "con" is assigned a connection to the Database
+			con = mariadbConnection.getConnection();
+			System.out.println("Connected!!!!!");
+			return con;
+					
+					
+		}
+		catch(Exception e) {
+								
+			System.out.println("Connection failed to MariaDb");
+			return null;
+					
+		}
+		finally {
+					
+			if(con!=null) {
+						
+				try {
+					con.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+						
+			}
+					
+		}
+				
+	}
+	
 	//Returns an ArrayList filled with Brands objects from database
 	public ArrayList<Brands> getAllBrands() throws SQLException {
 		// Declare variables
@@ -82,7 +121,7 @@ public class BrandsDAO {
 	} // End of getAllUsers method	
 
 	//Creates a Brand object into the database
-	public Integer registerBrand(Brands inputBrand) throws SQLException, ClassNotFoundException, IOException {
+	public Integer registerBrandIncludeId(Brands inputBrand) throws SQLException, ClassNotFoundException, IOException {
 		// Declare variables
 		Connection conn = null;
 		PreparedStatement stmt = null;
@@ -133,6 +172,57 @@ public class BrandsDAO {
 		return ID;
 	} // End of registerBrand() method
 
+	public Integer registerBrandExcludeId(Brands inputBrand) throws SQLException, ClassNotFoundException, IOException {
+		// Declare variables
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		
+		// Assign insert statement string to variable
+		String insertString = "insert into brands (brandName, brandDescription) values (?,?)";
+		
+	    int ID = inputBrand.getBrandID();
+	    String[] COL = {"brandId"};
+	    
+	    MariaDBConnection mysql = new MariaDBConnection();
+	    
+	    try
+	    {
+	        conn = mysql.getConnection();
+	        stmt = conn.prepareStatement(insertString, COL);
+	        
+	        
+	        stmt.setString(1, inputBrand.getBrandName());
+	        stmt.setString(2, inputBrand.getBrandDescription());
+	        
+	        stmt.executeUpdate();
+	        
+	        rs = stmt.getGeneratedKeys();
+	        if(rs != null && rs.next()) {
+	            ID = rs.getInt(1);
+	        }
+	        System.out.println(ID);
+	    }
+	    catch (SQLException e)
+		{
+			System.out.println("Error: " + e.getMessage());
+		}
+		finally
+		{
+			if (rs != null) {
+				rs.close();
+			}
+			if (stmt != null) {
+				stmt.close();
+			}
+			if (conn != null) {
+				conn.close();
+			}
+		}
+	    
+		return ID;
+	} // End of registerBrand() method
+	
 	//Retrieves a Brands object from the DB through an ID provided
 	public Brands getBrandById(int brandId) throws ClassNotFoundException, IOException, SQLException {
 		// Declare variables
@@ -291,7 +381,7 @@ public class BrandsDAO {
 	} // End of updateBrand() method
 	
 	//Deletes a Brands object from the DB through an ID provided
-	public Boolean removeBrand(int brandId) throws IOException, SQLException {
+	public Boolean removeBrandById(int brandId) throws IOException, SQLException {
 		// Declare variables
 		Connection conn = null;
 		PreparedStatement stmt = null;
@@ -333,10 +423,25 @@ public class BrandsDAO {
 		return false;
 	} // End of removeBrand() method
 
-	public static void main(String[]args) {
+	//Deletes a Brands object from the DB through a name provided
+	public Boolean removeBrandByName(String brandName) {
 		
 		
+		try {
+			//Uses existing method to get Brand to be deleted
+			Brands deletedBrand = getBrandByName(brandName);
+			
+			//Uses existing method to delete brand and returns outcome.
+			return removeBrandById(deletedBrand.getBrandID());
+			
+		}
+		catch(Exception e) {
+			
+			System.out.println("Unable to delete Brand");
+			return false;
+			
+		}
 		
 	}
-
+	
 }
