@@ -7,9 +7,22 @@ public class Items {
 	private int brandID;
 	private double itemPrice;
 	private String itemDescription;
-	private boolean itemInstrument;
-	private boolean itemEquipment;
+	private Boolean itemInstrument;
 	
+	public Items() {
+		
+	}
+	
+	public Items(int itemID, int categoryID, int brandID, double itemPrice, String itemDescription,
+			Boolean itemInstrument) {
+		super();
+		this.itemID = itemID;
+		this.categoryID = categoryID;
+		this.brandID = brandID;
+		this.itemPrice = itemPrice;
+		this.itemDescription = itemDescription;
+		this.itemInstrument = itemInstrument;
+	}
 	public int getItemID() {
 		return itemID;
 	}
@@ -48,16 +61,11 @@ public class Items {
 	public boolean isItemInstrument() {
 		return itemInstrument;
 	}
+	
 	public void setItemInstrument(boolean itemInstrument) {
 		this.itemInstrument = itemInstrument;
 	}
 	
-	public boolean isItemEquipment() {
-		return itemEquipment;
-	}
-	public void setItemEquipment(boolean itemEquipment) {
-		this.itemEquipment = itemEquipment;
-	}
 	
 	
 	

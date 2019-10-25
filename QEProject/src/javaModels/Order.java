@@ -9,6 +9,19 @@ public class Order {
 	private double orderTotal;
 	private String orderStatus;
 	
+	
+	public Order() {
+		
+	}
+	
+	public Order(int orderID, int userID, LocalDate orderDate, double orderTotal, String orderStatus) {
+		super();
+		this.orderID = orderID;
+		this.userID = userID;
+		this.orderDate = orderDate;
+		this.orderTotal = orderTotal;
+		this.orderStatus = orderStatus;
+	}
 	public int getOrderID() {
 		return orderID;
 	}

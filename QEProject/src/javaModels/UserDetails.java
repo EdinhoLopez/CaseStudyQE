@@ -9,6 +9,19 @@ public class UserDetails {
 	private LocalDate dateBirth;
 	private String userAddress;
 	
+	public UserDetails() {
+		
+	}
+	
+	public UserDetails(int userID, String userFName, String userLName, LocalDate dateBirth, String userAddress) {
+		super();
+		this.userID = userID;
+		this.userFName = userFName;
+		this.userLName = userLName;
+		this.dateBirth = dateBirth;
+		this.userAddress = userAddress;
+	}
+	
 	public int getUserID() {
 		return userID;
 	}

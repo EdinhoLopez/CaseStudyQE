@@ -18,7 +18,46 @@ public class BrandsDAO {
 	Connection con = null;
 	Statement stm = null;
 	
-	//Returns an ArrayList filled with Brands objects from database
+
+	//Determines whether a connection to the DB is possible		
+	public Connection testConnection() {
+				
+		//Creates object from MariaDBConnection so you can use its getConnection Method
+		MariaDBConnection mariadbConnection = new MariaDBConnection();
+				
+		try {
+					
+			//Variable "con" is assigned a connection to the Database
+			con = mariadbConnection.getConnection();
+			System.out.println("Connected!!!!!");
+			return con;
+					
+					
+		}
+		catch(Exception e) {
+								
+			System.out.println("Connection failed to MariaDb");
+			return null;
+					
+		}
+		finally {
+					
+			if(con!=null) {
+						
+				try {
+					con.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+						
+			}
+					
+		}
+				
+	}
+	
+	//Returns an ArrayList filled with Brands objects from database(Retrieve method)
 	public ArrayList<Brands> getAllBrands() throws SQLException {
 		// Declare variables
 		Connection conn = null;
@@ -45,18 +84,18 @@ public class BrandsDAO {
 		
 			// Run query and assign to the ResultSet instance
 			rs = stmt.executeQuery(qString);
-			//Create list to hold User objects
+			//Create list to hold Brands objects
 			brandList = new ArrayList<Brands>();
 			// Read the ResultSet instance
 			while (rs.next()) {
-				// Each iteration creates a new user
+				// Each iteration creates a new Brand
 				u = new Brands();
-				// Assign columns/fields to related fields in the User object
+				// Assign columns/fields to related fields in the Brand object
 				// 1,2 and 3 represent column numbers/positions
 				u.setBrandID(rs.getInt(1));
 				u.setBrandName(rs.getString(2));
 				u.setBrandDescription(rs.getString(3));
-				// Add the user to the list
+				// Add the Brand to the list
 				brandList.add(u);
 				// Repeat until rs.next() returns false (i.e., end of ResultSet)
 			}
@@ -79,10 +118,10 @@ public class BrandsDAO {
 			}
 		}
 		return brandList;
-	} // End of getAllUsers method	
+	} // End of getAllBrands method	
 
 	//Creates a Brand object into the database
-	public Integer registerBrand(Brands inputBrand) throws SQLException, ClassNotFoundException, IOException {
+	public Integer registerBrandIncludeId(Brands inputBrand) throws SQLException, ClassNotFoundException, IOException {
 		// Declare variables
 		Connection conn = null;
 		PreparedStatement stmt = null;
@@ -133,6 +172,57 @@ public class BrandsDAO {
 		return ID;
 	} // End of registerBrand() method
 
+	public Integer registerBrandExcludeId(Brands inputBrand) throws SQLException, ClassNotFoundException, IOException {
+		// Declare variables
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		
+		// Assign insert statement string to variable
+		String insertString = "insert into brands (brandName, brandDescription) values (?,?)";
+		
+	    int ID = inputBrand.getBrandID();
+	    String[] COL = {"brandId"};
+	    
+	    MariaDBConnection mysql = new MariaDBConnection();
+	    
+	    try
+	    {
+	        conn = mysql.getConnection();
+	        stmt = conn.prepareStatement(insertString, COL);
+	        
+	        
+	        stmt.setString(1, inputBrand.getBrandName());
+	        stmt.setString(2, inputBrand.getBrandDescription());
+	        
+	        stmt.executeUpdate();
+	        
+	        rs = stmt.getGeneratedKeys();
+	        if(rs != null && rs.next()) {
+	            ID = rs.getInt(1);
+	        }
+	        System.out.println(ID);
+	    }
+	    catch (SQLException e)
+		{
+			System.out.println("Error: " + e.getMessage());
+		}
+		finally
+		{
+			if (rs != null) {
+				rs.close();
+			}
+			if (stmt != null) {
+				stmt.close();
+			}
+			if (conn != null) {
+				conn.close();
+			}
+		}
+	    
+		return ID;
+	} // End of registerBrand() method
+	
 	//Retrieves a Brands object from the DB through an ID provided
 	public Brands getBrandById(int brandId) throws ClassNotFoundException, IOException, SQLException {
 		// Declare variables
@@ -155,12 +245,12 @@ public class BrandsDAO {
 			stmt = conn.prepareStatement(qString);
 			
 			// Set query parameters (?)
-			stmt.setInt(1, brandId); // user_id if from String parameter passed to method
+			stmt.setInt(1, brandId); // brandId if from String parameter passed to method
 			
 			// Run query and assign to ResultSet
 			rs = stmt.executeQuery();
 			
-			// Retrieve ResultSet and assign to new User
+			// Retrieve ResultSet and assign to new Brand
 			if (rs.next()) {
 				u = new Brands();
 				u.setBrandID(rs.getInt(1));
@@ -215,7 +305,7 @@ public class BrandsDAO {
 	 	// Run query and assign to ResultSet
 	 	rs = stmt.executeQuery();
 	 	
-	 	// Retrieve ResultSet and assign to new User
+	 	// Retrieve ResultSet and assign to new Brand
 	 	if (rs.next()) {
 	 		u = new Brands();
 	 		u.setBrandID(rs.getInt(1));
@@ -291,7 +381,7 @@ public class BrandsDAO {
 	} // End of updateBrand() method
 	
 	//Deletes a Brands object from the DB through an ID provided
-	public Boolean removeBrand(int brandId) throws IOException, SQLException {
+	public Boolean removeBrandById(int brandId) throws IOException, SQLException {
 		// Declare variables
 		Connection conn = null;
 		PreparedStatement stmt = null;
@@ -333,10 +423,26 @@ public class BrandsDAO {
 		return false;
 	} // End of removeBrand() method
 
-	public static void main(String[]args) {
+	//Deletes a Brands object from the DB through a name provided
+	public Boolean removeBrandByName(String brandName) {
 		
 		
+		try {
+			//Uses existing method to get Brand to be deleted
+			Brands deletedBrand = getBrandByName(brandName);
+			
+			//Uses existing method to delete brand and returns outcome.
+			return removeBrandById(deletedBrand.getBrandID());
+			
+		}
+		catch(Exception e) {
+			
+			System.out.println("Unable to delete Brand");
+			return false;
+			
+		}
 		
 	}
-
+	
+	
 }
