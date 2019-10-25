@@ -57,7 +57,7 @@ public class BrandsDAO {
 				
 	}
 	
-	//Returns an ArrayList filled with Brands objects from database
+	//Returns an ArrayList filled with Brands objects from database(Retrieve method)
 	public ArrayList<Brands> getAllBrands() throws SQLException {
 		// Declare variables
 		Connection conn = null;
@@ -84,18 +84,18 @@ public class BrandsDAO {
 		
 			// Run query and assign to the ResultSet instance
 			rs = stmt.executeQuery(qString);
-			//Create list to hold User objects
+			//Create list to hold Brands objects
 			brandList = new ArrayList<Brands>();
 			// Read the ResultSet instance
 			while (rs.next()) {
-				// Each iteration creates a new user
+				// Each iteration creates a new Brand
 				u = new Brands();
-				// Assign columns/fields to related fields in the User object
+				// Assign columns/fields to related fields in the Brand object
 				// 1,2 and 3 represent column numbers/positions
 				u.setBrandID(rs.getInt(1));
 				u.setBrandName(rs.getString(2));
 				u.setBrandDescription(rs.getString(3));
-				// Add the user to the list
+				// Add the Brand to the list
 				brandList.add(u);
 				// Repeat until rs.next() returns false (i.e., end of ResultSet)
 			}
@@ -118,7 +118,7 @@ public class BrandsDAO {
 			}
 		}
 		return brandList;
-	} // End of getAllUsers method	
+	} // End of getAllBrands method	
 
 	//Creates a Brand object into the database
 	public Integer registerBrandIncludeId(Brands inputBrand) throws SQLException, ClassNotFoundException, IOException {
@@ -245,12 +245,12 @@ public class BrandsDAO {
 			stmt = conn.prepareStatement(qString);
 			
 			// Set query parameters (?)
-			stmt.setInt(1, brandId); // user_id if from String parameter passed to method
+			stmt.setInt(1, brandId); // brandId if from String parameter passed to method
 			
 			// Run query and assign to ResultSet
 			rs = stmt.executeQuery();
 			
-			// Retrieve ResultSet and assign to new User
+			// Retrieve ResultSet and assign to new Brand
 			if (rs.next()) {
 				u = new Brands();
 				u.setBrandID(rs.getInt(1));
@@ -305,7 +305,7 @@ public class BrandsDAO {
 	 	// Run query and assign to ResultSet
 	 	rs = stmt.executeQuery();
 	 	
-	 	// Retrieve ResultSet and assign to new User
+	 	// Retrieve ResultSet and assign to new Brand
 	 	if (rs.next()) {
 	 		u = new Brands();
 	 		u.setBrandID(rs.getInt(1));
@@ -443,5 +443,6 @@ public class BrandsDAO {
 		}
 		
 	}
+	
 	
 }

@@ -6,7 +6,21 @@ public class Users {
 	private String userName;
 	private String userPassword;
 	private String userEmail;
-	private int userAdmit;
+	private int userAdmin;
+	
+	public Users() {
+		
+		
+	}
+	
+	public Users(int userID, String userName, String userPassword, String userEmail, int userAdmin) {
+		super();
+		this.userID = userID;
+		this.userName = userName;
+		this.userPassword = userPassword;
+		this.userEmail = userEmail;
+		this.userAdmin = userAdmin;
+	}
 	
 	public int getUserID() {
 		return userID;
@@ -36,11 +50,11 @@ public class Users {
 		this.userEmail = userEmail;
 	}
 	
-	public int getUserAdmit() {
-		return userAdmit;
+	public int getUserAdmin() {
+		return userAdmin;
 	}
-	public void setUserAdmit(int userAdmit) {
-		this.userAdmit = userAdmit;
+	public void setUserAdmin(int userAdmit) {
+		this.userAdmin = userAdmit;
 	}
 	
 	

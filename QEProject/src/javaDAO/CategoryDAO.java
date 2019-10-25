@@ -9,7 +9,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import javaDatabase.MariaDBConnection;
-import javaModels.Brands;
+
 import javaModels.Category;
 
 public class CategoryDAO {
@@ -83,18 +83,18 @@ public class CategoryDAO {
 			
 				// Run query and assign to the ResultSet instance
 				rs = stmt.executeQuery(qString);
-				//Create list to hold User objects
+				//Create list to hold Category objects
 				categoryList = new ArrayList<Category>();
 				// Read the ResultSet instance
 				while (rs.next()) {
-					// Each iteration creates a new user
+					// Each iteration creates a new Category
 					u = new Category();
-					// Assign columns/fields to related fields in the User object
+					// Assign columns/fields to related fields in the Category object
 					// 1,2 and 3 represent column numbers/positions
 					u.setCategoryID(rs.getInt(1));
 					u.setCategoryName(rs.getString(2));
 					u.setCategoryDescription(rs.getString(3));
-					// Add the user to the list
+					// Add the Category to the list
 					categoryList.add(u);
 					// Repeat until rs.next() returns false (i.e., end of ResultSet)
 				}
@@ -117,7 +117,7 @@ public class CategoryDAO {
 				}
 			}
 			return categoryList;
-		} // End of getAllUsers method	
+		} // End of getAllCategory method	
 
 		//Creates a Category object into the database
 		public Integer registerCategory(Category inputCategory) throws SQLException, ClassNotFoundException, IOException {
@@ -169,7 +169,7 @@ public class CategoryDAO {
 			}
 		    
 			return ID;
-		} // End of registerBrand() method
+		} // End of registerCategory() method
 
 		//Retrieves a Category object from the DB through an ID provided
 		public Category getCategoryById(int categoryId) throws ClassNotFoundException, IOException, SQLException {
@@ -193,12 +193,12 @@ public class CategoryDAO {
 				stmt = conn.prepareStatement(qString);
 				
 				// Set query parameters (?)
-				stmt.setInt(1, categoryId); // user_id if from String parameter passed to method
+				stmt.setInt(1, categoryId); // Category_id if from String parameter passed to method
 				
 				// Run query and assign to ResultSet
 				rs = stmt.executeQuery();
 				
-				// Retrieve ResultSet and assign to new User
+				// Retrieve ResultSet and assign to new Category
 				if (rs.next()) {
 					u = new Category();
 					u.setCategoryID(rs.getInt(1));
@@ -224,7 +224,7 @@ public class CategoryDAO {
 				}
 			}
 			return u;
-		} // End of getBrandById() method
+		} // End of getCategoryById() method
 		
 		//Retrieves a Category object from the DB through a Name provided
 		public Category getCategoryByName(String categoryName) throws ClassNotFoundException, IOException, SQLException {
@@ -253,7 +253,7 @@ public class CategoryDAO {
 		 	// Run query and assign to ResultSet
 		 	rs = stmt.executeQuery();
 		 	
-		 	// Retrieve ResultSet and assign to new User
+		 	// Retrieve ResultSet and assign to new Category
 		 	if (rs.next()) {
 		 		u = new Category();
 		 		u.setCategoryID(rs.getInt(1));
@@ -279,9 +279,9 @@ public class CategoryDAO {
 		 	}
 		 }
 		 return u;
-			} // End of getBrandByName() method
+			} // End of getCategoryByName() method
 			
-		//Updates a Category object from the DB through a given Brands object
+		//Updates a Category object from the DB through a given Category object
 		public Boolean updateCategory(Category u) throws SQLException, ClassNotFoundException, IOException {
 			// Declare variables
 			Connection conn = null;
@@ -326,7 +326,7 @@ public class CategoryDAO {
 				return true;
 			}
 			return false;
-		} // End of updateBrand() method
+		} // End of updateCategory() method
 		
 		//Deletes a Category object from the DB through an ID provided
 		public Boolean removeCategoryById(int categoryId) throws IOException, SQLException {
@@ -369,36 +369,27 @@ public class CategoryDAO {
 				return true;
 			}
 			return false;
-		} // End of removeBrand() method
+		} // End of removeCategory() method
 
 		//Deletes a Category object from the DB through a name provided
 		public Boolean removeCategoryByName(String categoryName) {
 			
 			
 			try {
-				//Uses existing method to get Brand to be deleted
+				//Uses existing method to get Category to be deleted
 				Category deletedCategory = getCategoryByName(categoryName);
 				
-				//Uses existing method to delete brand and returns outcome.
+				//Uses existing method to delete Category and returns outcome.
 				return removeCategoryById(deletedCategory.getCategoryID());
 				
 			}
 			catch(Exception e) {
 				
-				System.out.println("Unable to delete Brand");
+				System.out.println("Unable to delete Category");
 				return false;
 				
 			}
 			
 		}
 	
-
-		public static void main(String[] args) {
-			
-			CategoryDAO b1 = new CategoryDAO();
-			
-			
-			
-			
-		}
 }

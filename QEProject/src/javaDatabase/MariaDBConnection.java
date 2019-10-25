@@ -8,6 +8,8 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 public class MariaDBConnection {
+	
+	
 	public Connection getConnection() throws ClassNotFoundException,
 	IOException, SQLException {
 	final Properties prop = new Properties();
@@ -21,4 +23,5 @@ public class MariaDBConnection {
 			prop.getProperty("user"), prop.getProperty("password"));
 	return connection;
 	}
+	
 }
