@@ -86,10 +86,10 @@ CREATE TABLE IF NOT EXISTS `orderitems` (
 -- Dumping structure for table QEProjectDatabase.userdetails
 CREATE TABLE IF NOT EXISTS `userdetails` (
   `userID` int(11) NOT NULL,
-  `userFName` varchar(50) NOT NULL DEFAULT '',
-  `userLName` varchar(50) NOT NULL DEFAULT '',
+  `userFName` varchar(50) DEFAULT NULL,
+  `userLName` varchar(50) DEFAULT NULL,
   `dateBirth` date NOT NULL DEFAULT '0000-00-00',
-  `userAddress` text NOT NULL,
+  `userAddress` text DEFAULT NULL,
   PRIMARY KEY (`userID`),
   CONSTRAINT `FK__users` FOREIGN KEY (`userID`) REFERENCES `users` (`userID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -105,7 +105,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`userID`),
   UNIQUE KEY `userName` (`userName`),
   UNIQUE KEY `userEmail` (`userEmail`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
 
 -- Data exporting was unselected.
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
