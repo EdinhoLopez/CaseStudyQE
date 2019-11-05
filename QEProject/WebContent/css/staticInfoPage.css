@@ -1,0 +1,21 @@
+@charset "ISO-8859-1";
+
+.blogShort{ border-bottom:1px solid #ddd;}
+
+h1{
+
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+
+}
+
+article h2{
+
+    color:#333333;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+ .margin10{margin-bottom:10px; margin-right:10px;}

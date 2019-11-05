@@ -1,0 +1,198 @@
+@charset "ISO-8859-1";
+
+
+/*Navbar formatting CSS*/
+.navbar{
+
+    background-color: white !important;
+    font-size: 25px;
+
+}
+
+.navbar .navbar-brand{
+    color:black;
+    font-size: 25px;
+
+}
+
+.navbar .navbar-brand:hover{
+    color:gray;
+    font-size: 25px;
+
+}
+
+.navbar .navbar-nav li a{
+
+    color:gray !important;
+    font-size: 20px;
+
+}
+
+.navbar .navbar-nav li a:hover{
+
+    color:black !important;
+    
+}
+
+.navbar .nav-item .dropdown-menu .dropdown-item{
+
+    color:gray !important;
+    font-size: 20px;
+}
+
+.navbar .nav-item .dropdown-menu .dropdown-item:hover{
+
+    color:white !important;
+    background-color: black;
+    
+
+
+}
+
+/*Footer of entire page*/
+
+.footer-dark {
+
+    padding:15px;
+    background-color: black;
+    
+  }
+  .footer-dark .copyright {
+    text-align:center;
+    padding-top:0px;
+    font-size:13px;
+    margin-bottom:0;
+    color:white;
+  }
+
+
+/*Carousel banner CSS*/
+
+.blog .carousel-indicators {
+	left: 0;
+	top: auto;
+    bottom: -40px;
+
+}
+
+.blog .carousel-indicators li {
+    background: #a3a3a3;
+    border-radius: 50%;
+    width: 8px;
+    height: 8px;
+}
+
+.blog .carousel-indicators .active {
+background: #707070;
+}
+
+/* The about section on Main Page */
+
+.about-sec {
+	
+	background-size: cover;
+	color: #fff;
+	position: relative;
+}
+.about-sec:before {
+	content: ' ';
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: black;
+	top: 0;
+	left: 0
+}
+.about-sec h2 {
+	font-size: 45px;
+	font-weight: 800;
+	margin-top: 15%;
+}
+.about-sec h2 small {
+	
+	display: block;
+	font-size: 24px;
+	margin-bottom: 15px;
+	font-weight: 600;
+}
+.about-sec p {
+	font-size: 20px;
+}
+
+.action-sec{width:100%; float:left; background:#222}
+.action-box{float:left; width:100%; text-align:center;}
+.action-box h2{color:#fff; font-size:20px;}
+
+/*Contact information in HomePage*/
+.first-box{padding:10px;background:#404040;}
+.second-box{padding:10px; background:#4d4d4d;}
+.third-box{padding:10px;background:#595959;}
+.fourth-box{padding:10px;background:#666666;}
+
+.container-fluid h1{
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+.container-fluid h3{
+
+    padding-bottom: 10px;
+    color:white;
+
+}
+
+.container-fluid p{
+    font-size: 20px;
+    overflow-wrap: break-word;
+    color:white;
+}
+
+.container-fluid a{
+    color: black;
+}
+
+.container-fluid a:hover{
+
+    color: #b3b3b3;
+    text-decoration: underline;
+
+}
+
+/*Opening hours sections*/
+
+.demo-bg{
+background: darkgray;
+
+}
+.business-hours {
+background: black; 
+padding: 40px 14px;
+
+position: relative;
+}
+
+.business-hours .title {
+font-size: 20px;
+color: white;
+text-transform: uppercase;
+padding-left: 5px;
+border-left: 4px solid white; 
+}
+.business-hours li {
+color: white;
+line-height: 30px;
+border-bottom: 1px solid #333; 
+}
+.business-hours li:last-child {
+border-bottom: none; 
+}
+.business-hours .opening-hours li.today {
+color: gray; 
+}
+
+.openHours{
+
+    background-color: silver;
+
+}
