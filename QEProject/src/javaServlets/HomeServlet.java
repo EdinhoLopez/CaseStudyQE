@@ -13,8 +13,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import javaDAO.CategoryDAO;
 import javaDAO.ItemsDAO;
 import javaDAO.UsersDAO;
+import javaModels.Category;
 import javaModels.Items;
 import javaModels.Users;
 
@@ -68,6 +70,12 @@ public class HomeServlet extends HttpServlet {
 				case "/HomeServlet/showAboutPage":
 					showAboutPage(request,response);
 					break;
+				case "/HomeServlet/showInstrumentsPage":
+					showInstrumentsPage(request,response);
+					break;
+				case "/HomeServlet/showDetailsIntrument":
+					showDetailsInstrument(request,response);
+					break;
 				default:
 					showHomePage(request, response);
 					break;
@@ -76,6 +84,9 @@ public class HomeServlet extends HttpServlet {
 		catch(IOException e)
 		{
 			System.out.println(e.getMessage());
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 	
@@ -232,6 +243,8 @@ public class HomeServlet extends HttpServlet {
 		
 		ItemsDAO items_dao = new ItemsDAO();
 		
+		CategoryDAO cat_dao = new CategoryDAO();
+		
 		try {
 			
 			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/inventoryPage.jsp");
@@ -239,6 +252,11 @@ public class HomeServlet extends HttpServlet {
 			ArrayList<Items> allInv = items_dao.getAllItems();
 			
 			request.setAttribute("allInventory", allInv);
+			
+			ArrayList<Category> allCat = cat_dao.getAllCategory();
+			
+			request.setAttribute("allCategory", allCat);
+			
 			
 			rd.forward(request, response);
 			
@@ -293,4 +311,66 @@ public class HomeServlet extends HttpServlet {
 		
 	}
 	
+	private void showInstrumentsPage(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException {
+		
+		ItemsDAO items_dao = new ItemsDAO();
+		
+		try {
+			
+			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/instrumentsPage.jsp");
+			
+			ArrayList<Items> allInv = items_dao.getAllItems();
+			
+			ArrayList<Items> someItems = new ArrayList<Items>();
+			
+			int cId = Integer.parseInt(request.getParameter("id"));
+			
+			for(Items s:allInv) {
+				
+				if(s.getCategoryID()==cId) {
+					someItems.add(s);
+				}
+				
+			}
+			
+			request.setAttribute("someInv", someItems);
+	
+			rd.forward(request, response);
+			
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+			System.out.println("Unable to retrieve all objects");
+			
+		}
+
+	}
+
+	private void showDetailsInstrument(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException, ClassNotFoundException {
+		
+		ItemsDAO items_dao = new ItemsDAO();
+		
+		try {
+			
+			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/detailInstrument.jsp");
+			
+			int cId = Integer.parseInt(request.getParameter("id"));
+			
+			Items selectedItem = items_dao.getItemById(cId);
+			
+			request.setAttribute("selectItem", selectedItem);
+	
+			rd.forward(request, response);
+			
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+			System.out.println("Unable to retrieve all objects");
+			
+		}
+		
+		
+	}
 }
