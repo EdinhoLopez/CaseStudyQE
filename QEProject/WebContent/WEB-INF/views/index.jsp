@@ -18,7 +18,7 @@
     <!--Icon that appears on Website's tab-->
     <link rel='icon' href='${pageContext.request.contextPath}/Images/favicon.ico' type='image/x-icon'/>
     
-    <title>Musicians Headquaters</title>
+    <title>Musicians Headquarters</title>
 </head>
 <!--Home Page of Website-->
 <body>
@@ -29,7 +29,7 @@
 
         <!--Small image in navbar-->
         <img src="${pageContext.request.contextPath}/Images/clef.png" width="30" height="40" class="d-inline-block align-top" alt="">
-      Musicians Headquaters</a>
+      Musicians Headquarters</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -115,7 +115,7 @@
           <!--Text on the left of about section-->
           <div class="col-md-4">
             <p>Musicians Headquarters has been in business for
-                25 years Serving the Dallas Metro Area. We carry a lot of major bands,
+                40 years Serving the Dallas Metro Area. We carry a lot of major bands,
                  but we are known for our great selection of great used products. We buy,
                   sell, trade, consign, rent, and offer lessons.</p>
             <p>We are an independently owned
@@ -255,7 +255,7 @@
   <div class="footer-dark">
     <footer>
         
-      <p class="copyright">Musicians Headquaters © 2019</p>
+      <p class="copyright">Musicians Headquarters © 2019</p>
        
     </footer>
   </div>
