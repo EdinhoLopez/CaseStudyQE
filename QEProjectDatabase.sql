@@ -27,11 +27,11 @@ CREATE TABLE IF NOT EXISTS `brands` (
 -- Data exporting was unselected.
 -- Dumping structure for table QEProjectDatabase.category
 CREATE TABLE IF NOT EXISTS `category` (
-  `categoryID` int(11) NOT NULL,
+  `categoryID` int(11) NOT NULL AUTO_INCREMENT,
   `categoryName` varchar(50) DEFAULT NULL,
-  `categoryDescription` varchar(50) DEFAULT NULL,
+  `categoryDescription` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`categoryID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 
 -- Data exporting was unselected.
 -- Dumping structure for table QEProjectDatabase.inventory
@@ -39,24 +39,24 @@ CREATE TABLE IF NOT EXISTS `inventory` (
   `itemID` int(11) NOT NULL,
   `itemQuantity` tinyint(4) NOT NULL DEFAULT 0,
   PRIMARY KEY (`itemID`),
-  CONSTRAINT `FK__items` FOREIGN KEY (`itemID`) REFERENCES `items` (`itemID`)
+  CONSTRAINT `FK_inventory_items` FOREIGN KEY (`itemID`) REFERENCES `items` (`itemID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Data exporting was unselected.
 -- Dumping structure for table QEProjectDatabase.items
 CREATE TABLE IF NOT EXISTS `items` (
-  `itemID` int(11) NOT NULL,
+  `itemID` int(11) NOT NULL AUTO_INCREMENT,
   `categoryID` int(11) NOT NULL,
   `brandID` int(11) NOT NULL,
   `itemPrice` double NOT NULL DEFAULT -1,
-  `itemDescription` text NOT NULL DEFAULT '-1',
+  `itemDescription` text NOT NULL,
   `itemInstrument` binary(50) NOT NULL DEFAULT '-1\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0',
   PRIMARY KEY (`itemID`),
   KEY `FK__category` (`categoryID`),
   KEY `FK_items_brands` (`brandID`),
-  CONSTRAINT `FK__category` FOREIGN KEY (`categoryID`) REFERENCES `category` (`categoryID`),
-  CONSTRAINT `FK_items_brands` FOREIGN KEY (`brandID`) REFERENCES `brands` (`brandId`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  CONSTRAINT `FK_items_brands` FOREIGN KEY (`brandID`) REFERENCES `brands` (`brandId`),
+  CONSTRAINT `FK_items_category` FOREIGN KEY (`categoryID`) REFERENCES `category` (`categoryID`)
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
 
 -- Data exporting was unselected.
 -- Dumping structure for table QEProjectDatabase.order
@@ -78,7 +78,7 @@ CREATE TABLE IF NOT EXISTS `orderitems` (
   `itemID` int(11) NOT NULL,
   PRIMARY KEY (`orderID`,`itemID`),
   KEY `itemID_ForeignKey` (`itemID`),
-  CONSTRAINT `itemID_ForeignKey` FOREIGN KEY (`itemID`) REFERENCES `items` (`itemID`),
+  CONSTRAINT `FK_orderitems_items` FOREIGN KEY (`itemID`) REFERENCES `items` (`itemID`),
   CONSTRAINT `order_ForeignKey` FOREIGN KEY (`orderID`) REFERENCES `order` (`orderID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -105,7 +105,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`userID`),
   UNIQUE KEY `userName` (`userName`),
   UNIQUE KEY `userEmail` (`userEmail`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
 
 -- Data exporting was unselected.
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
