@@ -1,0 +1,49 @@
+@charset "ISO-8859-1";
+
+.blogShort{ border-bottom:1px solid #ddd;}
+
+h1{
+
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+
+}
+
+article h2{
+
+    color:#333333;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+
+
+.margin10{margin-bottom:10px; margin-right:10px;}
+
+
+.section .row{
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.section .row .col-md-6{
+	
+	background: #f5f5f5;
+    margin-right: -2%;
+    padding: 5%;
+	
+}
+   
+	
+.section h3{
+    color: black;
+}
+.section p{
+    margin-top: 10%;
+    color: #545b62;
+}
+.section img{
+    width: 100%;
+}
